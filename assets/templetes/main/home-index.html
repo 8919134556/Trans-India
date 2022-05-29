@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		{% load static %}	
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="{% static 'main/img/fav.png' %}">
+		<!-- Author Meta -->
+		<meta name="author" content="codepixer">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Trans India</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+		
+		<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="{% static 'main/css/linearicons.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/font-awesome.min.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/bootstrap.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/magnific-popup.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/nice-select.css' %}">					
+			<link rel="stylesheet" href="{% static 'main/css/animate.min.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/owl.carousel.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/maps1.css' %}">
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+		</head>
+		<body>
+
+			  <header id="header" id="home">
+			    <div class="container" >
+			    	<div class="row align-items-center justify-content-between d-flex">
+				      <div id="logo">
+				        <a href="#"><img src="{% static 'main/img/india.PNG' %}" alt="" title="" /></a>
+				      </div>
+				      <nav id="nav-menu-container">
+				        <ul class="nav-menu">
+				          <li class="menu-active  btn btn-success"><a href="{% url 'admin_login' %}">Admin</a></li>
+						  <li class="menu-has-children btn btn-success"><a href="">Partner</a>
+							<ul>
+								<li ><a href="../partnerapp/partner-registration">Register</a></li>
+								<li ><a href="../partnerapp/partner-login">Login</a></li>								
+				            </ul>
+						  </li>	
+						 
+						  <li class="menu-has-children  btn btn-success"><a href="">User</a>
+				            <ul>
+								<li ><a href="{% url 'user_register' %}">Register</a></li>
+								<li ><a href="{% url 'user_login' %}">Login</a></li>								
+				            </ul>
+				          </li>
+				          <li class="menu-has-children btn btn-success"><a href="">Drive with us</a>
+							<ul>
+								<li ><a href="../captainapp/captain-register">Register</a></li>
+								<li ><a href="../captainapp/captain-login">Login</a></li>								
+				            </ul>
+						  </li>	
+						  	          				          
+				        </ul>
+				      </nav><!-- #nav-menu-container -->		    		
+			    	</div>
+			    </div>
+			  </header><!-- #header -->
+
+
+			<!-- start banner Area -->
+			<section class="banner-area relative" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container-fluid">
+					<div class="row fullscreen d-flex align-items-center justify-content-center">
+
+						<div class="col-md-6">
+							<div class="container-map" id="google-map"></div> 
+
+						</div>
+						<div class="col-md-4">
+							<form style="border: 1px solid black; padding: 20px; text-align: center; border-radius: 7px;">
+								<!-- Location 1 -->
+								<div class="row" >
+
+									<div class="location-label">
+										<label>Origin: </label>                                    
+									</div>
+									<div class="location-input">
+										<input type="text" id="location-1" name="origin" placeholder="Enter a start location..."> 
+									</div>
+								</div>
+								<!-- Location 2 -->
+								<div class="row">
+									<div class="location-label">
+										<label class="">Destination:</label>
+									</div>
+									<div class="location-input">
+										<input type="text" id="location-2" name="destination" placeholder="Enter a last location...">
+									</div>
+								</div>
+					
+								<!-- Submit button -->
+								<div class="row mt-5 ml-5 " >
+									<button class="button" type="button" onclick="clearRoute();">Clear</button>
+									<button class="button" id="submit" type="button" onclick="calcRoute();">Submit</button>
+								</div>      
+								
+								<!-- Stats table -->                
+								<div id="output1" class="result-table">
+								
+								</div>
+
+								
+						   </form>
+						   
+						</div>
+						
+
+
+
+
+
+
+
+
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->	
+
+			<!-- Start features Area -->
+			<section class="features-area">
+				<div class="container">
+					<div class="row">
+					{% for a in view %}
+					<div class="col-lg-3 col-md-6">
+						
+						<div class="single-feature">
+							<h4>{{a.name}}</h4>
+							<h4>
+								<span style="color: darkgoldenrod;">Price : {{a.price}} &#x20B9; (per km)</span>
+							</h4>
+							<button class="btn btn-primary"><a class="text-white" href="{% url 'user_login' %}"> Book Now</a></button>
+						</div>
+						
+					</div>
+					{% endfor %}
+				</div>
+				</div>	
+			</section>
+			<!-- End features Area -->
+			
+
+			<!-- Start feature-cat Area -->
+			<section class="feature-cat-area pt-50" id="category">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-10">
+							<div class="title text-center">
+								<h1 class="mb-10">Carriers for your need</h1>
+								<hr>
+								<p></p>
+							</div>
+						</div>
+					</div>						
+					<div class="row">
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="">
+									<img src="{% static 'main/img/tata.png' %}" alt="">
+								</a>
+								<p><strong>Tata Ace</strong></p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="">
+									<img src="{% static 'main/img/two.jpg' %}" alt="">
+								</a>
+								<p><strong>Two-Wheeler</strong></p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="">
+									<img src="{% static 'main/img/tata.png' %}" alt="">
+								</a>
+								<p><strong>Ashok Leyland Dost</strong></p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="">
+									<img src="{% static 'main/img/eicher.jpg' %}" alt="">
+								</a>
+								<p><strong>Eicher Carrier</strong></p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="">
+									<img src="{% static 'main/img/pia.jpg' %}" alt="">
+								</a>
+								<p><strong>Piaggio</strong></p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="">
+									<img src="{% static 'main/img/tata.png' %}" alt="">
+								</a>
+								<p><strong>Super Ace 8ft</strong></p>
+							</div>			
+						</div>																											
+					</div>
+				</div>	
+			</section>
+			<!-- End feature-cat Area -->
+
+
+            <div class="container" style="margin-top: 50px; margin-bottom: 30px;">
+                <h1>What people says</h1>
+                <hr>
+                <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+                    <div class="row justify-content-evenly">
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-body">
+                                  <img src="{% static 'main/img/t3.png' %}" alt="" class="avatar">
+                                  <h6><i class="bi bi-geo-alt-fill">Hyderabad</i></h6>
+                                  <p><strong>Truck driver, Porter App</strong></p>
+                                  <h6>“Way better than naaka waalas. Have shifted all my logistics needs to Porter and I can now safely focus on my business growth. Amazing service!”</h6>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-body">
+                                  <img src="{% static 'main/img/t3.png' %}" alt="" class="avatar">
+                                  <h6><i class="bi bi-geo-alt-fill">Hyderabad</i></h6>
+                                  <p><strong>Truck driver, Porter App</strong></p>
+                                  <h6>“Way better than naaka waalas. Have shifted all my logistics needs to Porter and I can now safely focus on my business growth. Amazing service!”</h6>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-body">
+                                  <img src="{% static 'main/img/t3.png' %}" alt="" class="avatar">
+                                  <h6><i class="bi bi-geo-alt-fill">Hyderabad</i></h6>
+                                  <p><strong>Truck driver, Porter App</strong></p>
+                                  <h6>“Way better than naaka waalas. Have shifted all my logistics needs to Porter and I can now safely focus on my business growth. Amazing service!”</h6>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            			<!-- start footer Area -->		
+			<footer class="footer-area section-gap">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-2  col-md-12">
+							<div class="single-footer-widget">
+								<h6>Our Partners</h6>
+								<ul class="footer-nav">
+									<li><a href="#">Porter</a></li>
+									<li><a href="#">Lynk</a></li>
+									<li><a href="#">Swiggy Genie</a></li>
+									<li><a href="#">Rapido</a></li>
+								</ul>
+							</div>
+						</div>
+                        <div class="col-lg-2  col-md-12">
+							<div class="single-footer-widget">
+								<h6>We're here</h6>
+								<ul class="footer-nav">
+									<li><a href="#">Hyderabad</a></li>
+									<li><a href="#">Bangalore</a></li>
+									<li><a href="#">Chennai</a></li>
+									<li><a href="#">Coimbatore</a></li>
+								</ul>
+							</div>
+						</div>
+                        <div class="col-lg-2  col-md-12">
+							<div class="single-footer-widget">
+								<h6>We're here</h6>
+								<ul class="footer-nav">
+									<li><a href="#">Jaipur</a></li>
+									<li><a href="#">Kolkata</a></li>
+									<li><a href="#">Surat</a></li>
+									<li><a href="#">Indore</a></li>
+								</ul>
+							</div>
+						</div>
+                        <div class="col-lg-2  col-md-12">
+							<div class="single-footer-widget">
+								<h6>We're here</h6>
+								<ul class="footer-nav">
+                                    <li><a href="#">Mumbai</a></li>
+									<li><a href="#">Delhi NCR</a></li>
+									<li><a href="#">Bopal</a></li>
+									<li><a href="#">Pune</a></li>
+								</ul>
+							</div>
+						</div>
+                        <div class="col-lg-2  col-md-12">
+							<div class="single-footer-widget">
+								<h6>Trans India</h6>
+								<ul class="footer-nav">
+									<li><a href="#">About us</a></li>
+									<li><a href="captain.html">Drive with us</a></li>
+									<li><a href="user-register.html">User</a></li>
+								</ul>
+							</div>
+						</div>
+											
+					</div>
+
+					<div class="row footer-bottom d-flex justify-content-between">
+						<p class="col-lg-8 col-sm-12 footer-text m-0 text-white">
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed by Codebook.in.
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						</p>
+						<div class="col-lg-4 col-sm-12 footer-social">
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-dribbble"></i></a>
+							<a href="#"><i class="fa fa-behance"></i></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- End footer Area -->
+
+
+            <script src="{% static 'main/js/vendor/jquery-2.2.4.min.js' %}"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="{% static 'main/js/vendor/bootstrap.min.js' %}"></script>			
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  			<script src="{% static 'main/js/easing.min.js' %}"></script>			
+			<script src="{% static 'main/js/hoverIntent.js' %}"></script>
+			<script src="{% static 'main/js/superfish.min.js' %}"></script>	
+			<script src="{% static 'main/js/jquery.ajaxchimp.min.js' %}"></script>
+			<script src="{% static 'main/js/jquery.magnific-popup.min.js' %}"></script>	
+			<script src="{% static 'main/js/owl.carousel.min.js' %}"></script>			
+			<script src="{% static 'main/js/jquery.sticky.js' %}"></script>
+			<script src="{% static 'main/js/jquery.nice-select.min.js' %}"></script>			
+			<script src="{% static 'main/js/parallax.min.js' %}"></script>		
+			<script src="{% static 'main/js/mail-script.js' %}"></script>	
+			<script src="{% static 'main/js/main.js' %}"></script>
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV6gT4MhJokVtuuSlg6RmL7468h34YMH0&libraries=places"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<script src="{% static 'main/js/maps.js' %}"></script>	
+		</body>
+	</html>

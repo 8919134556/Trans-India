@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+        {% load static %}
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="{% static 'main/img/fav.png' %}">
+		<!-- Author Meta -->
+		<meta name="author" content="codepixer">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Trans India</title>
+
+		
+			<link rel="stylesheet" href="{% static 'main/css/cap-login-form.css' %}">
+			<script src="{% static 'main/js/sweetalert.min.js' %}"></script>
+			
+    		
+			</head>
+		<body>
+            <div class="warpper fl">
+                <div class="main">
+                    <div class="head">
+        <p>
+        Captain Login Form</p>
+        </div>
+        <div class="form fl">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %} 
+        
+        <p class="name">
+        EMAIL* :</p>
+        <p>
+        <input type="email" name="email" placeholder="Email" class="name-inp"></p>
+        
+        <p class="name">
+        PASSWORD* :</p>
+        <p>
+        <input type="password" name="pass" placeholder="Password" class="pass" id="myInput">
+        <p class="name"><input type="checkbox" onclick="myFunction()">Show Password  </p>              
+        </p>
+        
+        <p>
+        <input type="submit" name="sb" value="SUBMIT" class="sub"></p>
+        <p class="name">If Don't have an Account, please  <a href="{% url 'captain_register' %}">Sign Up!</a></p>
+        </form>
+        </div>
+        </div>
+        </div>
+  
+		<script>
+			function myFunction() {
+			  var x = document.getElementById("myInput");
+			  if (x.type === "password") {
+				x.type = "text";
+			  } else {
+				x.type = "password";
+			  }
+			}
+			</script>
+			<script>
+				{% for msg in messages %} 
+						   
+				   swal( "Server Response", "{{msg}}");
+			   {% endfor %} 
+		   </script>
+				
+		</body>
+	</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+    {% load static %}
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="{% static 'main/img/fav.png' %}">
+		<!-- Author Meta -->
+		<meta name="author" content="codepixer">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Trans India</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="{% static 'main/css/linearicons.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/font-awesome.min.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/bootstrap.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/magnific-popup.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/nice-select.css' %}">					
+			<link rel="stylesheet" href="{% static 'main/css/animate.min.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/owl.carousel.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+		</head>
+		<body>
+
+			  <header id="header" id="home">
+			    <div class="container">
+			    	<div class="row align-items-center justify-content-between d-flex">
+				      <div id="logo">
+				        <a href="home-index.html"><img src="{% static 'main/img/india.PNG' %}" alt="" title="" /></a>
+				      </div>
+				      <nav id="nav-menu-container">
+				        <ul class="nav-menu">
+                  <li><a class="btn btn-success" href="{% url 'captain_home' %}">my home</a></li>
+							    <li><a class="btn btn-success" href="#">My Profile</a></li>
+                  <li><a class="btn btn-success" href="{% url 'order' %}">Orders</a></li>
+							    <li><a class="btn btn-success" href="{% url 'captain_order1' %}">My History</a></li>
+							    	
+							    <li><a class="btn btn-success" href="{% url 'captain_feedback' %}">My Feedbacks</a></li>
+							    <li><a class="btn btn-success" href="../mainapp/">Logout</a></li>				          				          
+				        </ul>
+				      </nav><!-- #nav-menu-container -->		    		
+			    	</div>
+			    </div>
+			  </header><!-- #header -->
+
+              <br><br><br><br><br>
+
+              <section class="user-profile section">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-10 offset-md-1 col-lg-3 offset-lg-0">
+                      <div class="sidebar">
+                        <!-- User Widget -->
+                        <div class="widget user">
+                          <!-- User Image -->
+                          <div class="image d-flex justify-content-center">
+                            <img src="/media/{{obj.cap_image}}" alt="" class="avatar2 mb-2" />
+                          </div>
+                          <!-- User Name -->
+                          <h5 class="text-center text-success">{{obj.cap_name}}</h5>
+                        </div>
+                        <!-- Dashboard Links -->
+                        <div class="widget user-dashboard-menu">
+                          <ul>
+                            <hr />
+                            <li>
+                              <a href="../mainapp/"
+                                ><i class="fa fa-cog"></i> Logout</a
+                              >
+                            </li>
+                            <li>
+                              <a href="" data-toggle="modal" data-target="#deleteaccount"
+                                ><i class="fa fa-power-off"></i>Delete Account</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-10 offset-md-1 col-lg-9 offset-lg-0">
+                      <!-- Edit Profile Welcome Text -->
+                      <div class="widget welcome-message">
+                        <h2>Edit profile</h2>
+                        <p>
+                          Earn money by delivering goods, courier and packages. Get a part time or full time delivery job. And make changes or update to your profile.
+                        </p>
+                      </div>
+                      <!-- Delete Account -->
+                      <div
+                        class="modal fade"
+                        id="deleteaccount"
+                        tabindex="-1"
+                        role="dialog"
+                        aria-labelledby="exampleModalCenterTitle"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header border-bottom-0">
+                              <button
+                                type="button"
+                                class="close"
+                                data-dismiss="modal"
+                                aria-label="Close"
+                              >
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body text-center">
+                              <img
+                                src="{% static 'main/images/account/Account1.png' %}"
+                                class="img-fluid mb-2"
+                                alt=""
+                              />
+                              <h6 class="py-2">
+                                Are you sure you want to delete your account?
+                              </h6>
+                              <p>
+                                Do you really want to delete these records? This process
+                                cannot be undone.
+                              </p>
+                              <textarea
+                                name="message"
+                                id=""
+                                cols="40"
+                                rows="4"
+                                class="w-100 rounded"
+                              ></textarea>
+                            </div>
+                            <div
+                              class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center"
+                            >
+                              <button
+                                type="button"
+                                class="btn btn-primary"
+                                data-dismiss="modal"
+                              >
+                                Cancel
+                              </button>
+                              <button type="button" class="btn btn-danger">Delete</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+          
+                      <!-- Edit Personal Info -->
+                      <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                          <div class="widget personal-info">
+                            <h3 class="widget-header user">Edit Personal Information</h3>
+                            <form action="#">
+                              <!-- First Name -->
+                              <div class="form-group">
+                                <label for="first-name">Full Name</label>
+                                <input type="text" class="form-control" readonly id="first-name" value="{{obj.cap_name}}" />
+                              </div>
+                              <!-- Last Name -->
+                              <div class="form-group">
+                                <label for="last-name">Email Address</label>
+                                <input type="text" class="form-control" id="last-name" readonly value="{{obj.cap_email}}"/>
+                              </div>
+                              <div class="form-group">
+                                <label for="last-name">Home Address</label>
+                                <input type="text" class="form-control" id="last-name" readonly value="{{obj.city}}"/>
+                              </div>
+                              <!-- File chooser -->
+                              <div class="form-group">
+                                <label for="current-password">Current Password</label>
+                                <input
+                                  type="password"
+                                  class="form-control mb-1"
+                                  id="myInput"
+                                  value="{{obj.cap_pwd}}" readonly
+                                />
+                                <input type="checkbox" class="mb-5" onclick="myFunction()"> Show Password
+                              </div>
+                              
+                              <!-- Submit button -->
+
+                            </form>
+                          </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                          <!-- Change Password -->
+                          <div class="widget change-password">
+                            <h3 class="widget-header user">Edit Password</h3>
+                            <form method="post">
+                              {% csrf_token %} 
+                              <!-- Current Password -->
+                              
+                              <!-- New Password -->
+                              <div class="form-group">
+                                <label for="new-password">New Password</label>
+                                <input
+                                  type="password"
+                                  class="form-control"
+                                  id="new-password"
+                                  name="new-pass"
+                                />
+                              </div>
+                              <!-- Confirm New Password -->
+          
+                              <!-- Submit Button -->
+                              <a><button type="submit" class="btn btn-transparent">Change Password</button></a>
+                            </form>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              
+
+
+
+
+                         			<!-- start footer Area -->		
+			<footer class="footer-area section-gap">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-2  col-md-12">
+							<div class="single-footer-widget">
+								<h6>Our Partners</h6>
+								<ul class="footer-nav">
+									<li><a href="#">Porter</a></li>
+									<li><a href="#">Lynk</a></li>
+									<li><a href="#">Swiggy Genie</a></li>
+									<li><a href="#">Rapido</a></li>
+								</ul>
+							</div>
+						</div>
+                        <div class="col-lg-2  col-md-12">
+							<div class="single-footer-widget">
+								<h6>We're here</h6>
+								<ul class="footer-nav">
+									<li><a href="#">Hyderabad</a></li>
+									<li><a href="#">Bangalore</a></li>
+									<li><a href="#">Chennai</a></li>
+									<li><a href="#">Coimbatore</a></li>
+								</ul>
+							</div>
+						</div>
+                        <div class="col-lg-2  col-md-12">
+							<div class="single-footer-widget">
+								<h6>We're here</h6>
+								<ul class="footer-nav">
+									<li><a href="#">Jaipur</a></li>
+									<li><a href="#">Kolkata</a></li>
+									<li><a href="#">Surat</a></li>
+									<li><a href="#">Indore</a></li>
+								</ul>
+							</div>
+						</div>
+                        <div class="col-lg-2  col-md-12">
+							<div class="single-footer-widget">
+								<h6>We're here</h6>
+								<ul class="footer-nav">
+                                    <li><a href="#">Mumbai</a></li>
+									<li><a href="#">Delhi NCR</a></li>
+									<li><a href="#">Bopal</a></li>
+									<li><a href="#">Pune</a></li>
+								</ul>
+							</div>
+						</div>
+                        <div class="col-lg-2  col-md-12">
+							<div class="single-footer-widget">
+								<h6>Trans India</h6>
+								<ul class="footer-nav">
+                  <li><a href="captain-payment.html">My Payments</a></li>
+									<li><a href="captain-profile.html">My Profile</a></li>
+									<li><a href="captain-feedback.html">My feedbacks</a></li>
+                  <li><a href="captain-order.html">My Orders</a></li>
+								</ul>
+							</div>
+						</div>
+			     </div>
+
+					<div class="row footer-bottom d-flex justify-content-between">
+						<p class="col-lg-8 col-sm-12 footer-text m-0 text-white">
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed by Anantha Corp.
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						</p>
+						<div class="col-lg-4 col-sm-12 footer-social">
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-dribbble"></i></a>
+							<a href="#"><i class="fa fa-behance"></i></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- End footer Area -->
+
+
+            <script src="{% static 'main/js/vendor/jquery-2.2.4.min.js' %}"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="{% static 'main/js/vendor/bootstrap.min.js' %}"></script>			
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  			<script src="{% static 'main/js/easing.min.js' %}"></script>			
+			<script src="{% static 'main/js/hoverIntent.js' %}"></script>
+			<script src="{% static 'main/js/superfish.min.js' %}"></script>	
+			<script src="{% static 'main/js/jquery.ajaxchimp.min.js' %}"></script>
+			<script src="{% static 'main/js/jquery.magnific-popup.min.js' %}"></script>	
+			<script src="{% static 'main/js/owl.carousel.min.js' %}"></script>			
+			<script src="{% static 'main/js/jquery.sticky.js' %}"></script>
+			<script src="{% static 'main/js/jquery.nice-select.min.js' %}"></script>			
+			<script src="{% static 'main/js/parallax.min.js' %}"></script>		
+			<script src="{% static 'main/js/mail-script.js' %}"></script>	
+			<script src="{% static 'main/js/main.js' %}"></script>
+      <script>
+        function myFunction() {
+          var x = document.getElementById("myInput");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+        }
+        </script>	
+		</body>
+	</html>

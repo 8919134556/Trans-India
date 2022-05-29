@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		{% load static %}
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="{% static 'main/img/fav.png' %}">
+		<!-- Author Meta -->
+		<meta name="author" content="codepixer">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Trans India</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="{% static 'main/css/linearicons.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/font-awesome.min.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/bootstrap.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/magnific-popup.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/nice-select.css' %}">					
+			<link rel="stylesheet" href="{% static 'main/css/animate.min.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/owl.carousel.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+            <link rel="stylesheet" href="{% static 'main/css/maps1.css' %}">
+			<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+		</head>
+		<body>
+
+			  <header id="header" id="home">
+			    <div class="container">
+			    	<div class="row align-items-center justify-content-between d-flex">
+				      <div id="logo">
+				        <a href="home-index.html"><img src="{% static 'main/img/india.PNG' %}" alt="" title="" /></a>
+				      </div>
+				      <nav id="nav-menu-container">
+				        <ul class="nav-menu">
+                            <li><a class="btn btn-success" href="{% url 'user_home' %}">home</a></li>
+                  			<li><a class="btn btn-success" href="{% url 'user_profile' %}">My Profile</a></li>
+                  			<li><a class="btn btn-success" href="{% url 'user_booking' %}">My Bookings</a></li>                          
+                  			<li><a class="btn btn-success" href="../mainapp/">Logout</a></li>	
+				        </ul>
+				      </nav>
+					  <!-- #nav-menu-container -->		    		
+			    	</div>
+			    </div>
+			  </header><!-- #header -->
+
+
+			<!-- start banner Area -->
+			<section class="banner-area relative" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container-fluid">
+					<div class="row d-flex align-items-center justify-content-center">
+
+						<div class="col-md-6">
+							<div class="container-map" style="height:350px ; margin-top: 100px;" id="google-map"></div> 
+
+						</div>
+						
+						<div class="col-md-4">
+							<form style="border: 1px solid black; padding: 20px; text-align: center; border-radius: 7px;">
+								<!-- Location 1 -->
+								
+								<div class="row">
+
+									<div class="location-label">
+										<label>Origin: </label>                                    
+									</div>
+									<div class="location-input">
+										<input type="text" id="location-1" name="origin" placeholder="Enter a start location..."> 
+									</div>
+								</div>
+								<!-- Location 2 -->
+								<div class="row">
+									<div class="location-label">
+										<label class="">Destination:</label>
+									</div>
+									<div class="location-input">
+										<input type="text" id="location-2" name="destination" placeholder="Enter a last location...">
+									</div>
+								</div>
+								<div id="output6" ></div>
+					
+								<!-- Submit button -->
+								<div class="row mt-5 ml-5 " >
+									<button class="button" type="button" onclick="clearRoute();">Clear</button>
+									<button class="button" id="submit" type="button" onclick="calcRoute();">Submit</button>
+									
+								</div>      
+								
+								<!-- Stats table -->                
+								
+                                
+                                						
+						   </form>
+          
+						</div>
+						
+					</div>
+				</div>
+			</section>
+			
+		
+			
+
+			  
+				<div class="row ">
+					<div class="column mt-3" style="margin-left: 18%;">
+						<div class="card">
+							<form method='post' enctype='multipart/form-data' class="dem d-flex"  > 
+						
+								{% csrf_token %}
+								<div id="output1" class="demo" style="padding:0px 20px;">
+								<img src="{% static 'main/img/1.jpg' %}" hidden id="image" alt='' class='avatar'>	
+								<input type="text" id="demo" hidden value="{{obj.price}}">
+							</div>
+								
+							</form>
+
+						</div>
+					</div>
+				
+					<div class="column mt-3" style="margin-left: 18%;">
+						<div class="card">
+							<form method='post' enctype='multipart/form-data' class="dem d-flex"  > 
+					
+								{% csrf_token %}
+								<div id="output2" class="demo" style="padding:0px 20px; ">
+								<img src="{% static 'main/img/20.jpg' %}" hidden id="image1" alt='' class='avatar'>
+								<input type="text" id="demo1" hidden value="{{obj1.price}}">	
+								</div>
+								
+							</form>
+						</div>
+					</div>
+					
+					<div class="column mt-3" style="margin-left: 18%;">
+						<div class="card">
+							<form method='post' enctype='multipart/form-data' class="dem"  > 
+							
+								{% csrf_token %}
+								<div id="output3" class="demo" style="padding:0px 20px;">
+								<img src="{% static 'main/img/21.jpg' %}" hidden id="image2" alt='' class='avatar'>
+								<input type="text" id="demo2" hidden value="{{obj2.price}}">	
+								</div>
+								
+							</form>
+
+						</div>
+					</div>
+					
+					<div class="column mt-3" style="margin-left: 18%;">
+						<div class="card">
+							<form method='post' enctype='multipart/form-data' class="dem "  > 
+												
+								{% csrf_token %}
+								<div id="output4" class="demo" style="padding:0px 20px;">
+								<img src="{% static 'main/img/22.jpg' %}" hidden id="image3" alt='' class='avatar'>
+								<input type="text" id="demo3" hidden value="{{obj3.price}}">	
+								</div>
+								
+							</form>
+						</div>
+					</div>
+					<div class="column mt-3" style="margin-left: 18%; ">
+						<div class="card">
+							<form method='post' enctype='multipart/form-data' class="dem "  > 
+												
+								{% csrf_token %}
+								<div id="output5" class="demo" style="padding:0px 20px;">
+								<img src="{% static 'main/img/25.png' %}" hidden id="image4" alt='' class='avatar'>
+								<input type="text" id="demo4" hidden value="{{obj4.price}}">	
+								</div>
+								
+							</form>
+						</div>
+					</div>
+				</div>
+
+
+				
+					
+           
+			<!-- End banner Area -->	
+
+			
+		
+
+
+            <script src="{% static 'main/js/vendor/jquery-2.2.4.min.js' %}"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="{% static 'main/js/vendor/bootstrap.min.js' %}"></script>			
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  			<script src="{% static 'main/js/easing.min.js' %}"></script>			
+			<script src="{% static 'main/js/hoverIntent.js' %}"></script>
+			<script src="{% static 'main/js/superfish.min.js' %}"></script>	
+			<script src="{% static 'main/js/jquery.ajaxchimp.min.js' %}"></script>
+			<script src="{% static 'main/js/jquery.magnific-popup.min.js' %}"></script>	
+			<script src="{% static 'main/js/owl.carousel.min.js' %}"></script>			
+			<script src="{% static 'main/js/jquery.sticky.js' %}"></script>
+			<script src="{% static 'main/js/jquery.nice-select.min.js' %}"></script>			
+			<script src="{% static 'main/js/parallax.min.js' %}"></script>		
+			<script src="{% static 'main/js/mail-script.js' %}"></script>	
+			<script src="{% static 'main/js/main.js' %}"></script>	
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV6gT4MhJokVtuuSlg6RmL7468h34YMH0&libraries=places"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<script src="{% static 'main/js/lmaps.js' %}"></script>
+			
+		</body>
+	</html>

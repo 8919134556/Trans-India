@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+        {% load static %}
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="{% static 'main/img/fav.png' %}">
+		<!-- Author Meta -->
+		<meta name="author" content="codepixer">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Trans India</title>
+
+		
+			<link rel="stylesheet" href="{% static 'main/css/pat-regi.css' %}">
+            <script src="{% static 'main/js/sweetalert.min.js' %}"></script>
+			</head>
+		<body>
+            <div class="warpper fl">
+                <div class="main">
+                    <div class="head">
+        <p>
+        Partener Registration Form</p>
+        </div>
+        <div class="form fl">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %} 
+        <p class="name">
+        NAME* :</p>
+        <p>
+        <input type="text" name="name" required placeholder="Full Name" class="name-inp"></p>
+        <p class="name">
+        City* :</p>
+        <p>
+        
+        <select type="text" required placeholder="Designation" name="city" required class="name-inp">
+                                        
+            <option disabled>Select City</option>
+            <option>Hyderabad </option>
+            <option>Benguluru</option>
+            <option> Guntur </option>
+            <option> Vijayawada </option>
+            
+        </select>
+            
+        </P>
+		<p class="name">
+			Partnership* :</p>
+			<p>
+			
+			<select type="text" required placeholder="Designation" name="partener" required class="name-inp">
+											
+				<option disabled>Select City</option>
+				<option>Rapido </option>
+				<option>Swiggy_Genie</option>
+				<option> Porter </option>
+				<option> Lynk </option>
+				
+			</select>
+				
+			</P>
+        
+            <p class="name">
+            Licences Number* :</p>
+            <p>
+            <input type="text" required name="lic_num" placeholder="Licences Number" class="name-inp"></p>
+        <p class="name">
+        EMAIL* :</p>
+        <p>
+        <input type="email" required name="email" placeholder="Email" class="name-inp"></p>
+        <p class="name">
+        PHONE* :</P>
+                            <p>
+        <input type="text" required name="phone" pattern="[0-9]{10}" placeholder="Phone" class="name-inp"></p>
+        <p class="name">
+        PASSWORD* :</p>
+        <p>
+        <input type="password" required name="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password ex:- (Examp123)" class="pass">
+                                
+        </p>
+        
+        <p class="name">
+            Your Image* :</p>
+        <p>
+        <input type="file" name="image" required placeholder="Upload your image" class="file"></p>
+        <p class="name">
+            Your Licences* :</p>
+        <p>
+        <input type="file" name="Licences" required placeholder="Upload your Licences" class="file"></p>
+        
+        <p>
+        <input type="submit" name="sb" value="SUBMIT" class="sub"></p>
+        <p class="name">If have an Account, please  <a href="{% url 'partner_login' %}">Sign In!</a></p>
+        </form>
+        </div>
+        </div>
+        </div>
+        
+
+
+            <script>
+                const togglePassword = document.querySelector("#togglePassword");
+                const password = document.querySelector("#password");
+        
+                togglePassword.addEventListener("click", function () {
+                    // toggle the type attribute
+                    const type = password.getAttribute("type") === "password" ? "text" : "password";
+                    password.setAttribute("type", type);
+                    
+                    // toggle the icon
+                    this.classList.toggle("bi-eye");
+                });
+        
+                // prevent form submit
+                const form = document.querySelector("form");
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                });
+            </script>	
+            <script>
+				{% for msg in messages %} 
+						   
+				   swal( "Server Response", "{{msg}}");
+			   {% endfor %} 
+		   </script>
+		</body>
+	</html>

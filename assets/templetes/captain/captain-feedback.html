@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		{% load static %}
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="{% static 'main/img/fav.png' %}">
+		<!-- Author Meta -->
+		<meta name="author" content="codepixer">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Trans India</title>
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="{% static 'main/css/linearicons.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/font-awesome.min.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/bootstrap.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/magnific-popup.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/nice-select.css' %}">					
+			<link rel="stylesheet" href="{% static 'main/css/animate.min.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/owl.carousel.css' %}">
+			<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+			<link rel="stylesheet" href="{% static 'main/css/feedback.css' %}">
+		</head>
+		<body>
+
+			  <header id="header" id="home">
+			    <div class="container">
+			    	<div class="row align-items-center justify-content-between d-flex">
+				      <div id="logo">
+				        <a href="#"><img src="{% static 'main/img/india.PNG' %}" alt="" title="" /></a>
+				      </div>
+				      <nav id="nav-menu-container">
+				        <ul class="nav-menu">
+							<li><a class="btn btn-success" href="{% url 'captain_home' %}">my home</a></li>
+							<li><a class="btn btn-success" href="{% url 'captain_profile' %}">My Profile</a></li>
+							<li><a class="btn btn-success" href="{% url 'order' %}">Orders</a></li>
+							<li><a class="btn btn-success" href="{% url 'captain_order1' %}">My History</a></li>
+								
+							<li><a class="btn btn-success" href="#">My Feedbacks</a></li>
+							<li><a class="btn btn-success" href="../mainapp/">Logout</a></li>				          				          
+				        </ul>
+				      </nav><!-- #nav-menu-container -->		    		
+			    	</div>
+			    </div>
+			  </header><!-- #header -->
+
+              <br><br><br>
+
+              
+              <div class="container-fluid pt-4 px-4">
+                
+                    <div class="col-12">
+                        <div class="bg-light rounded h-100 p-4">
+                            <div class="col-12 mb-3" style="background: lightgrey; border-radius: 25px; padding: 7px;">
+								<h5 style="text-align:center; color: black;">View Feedbacks</h5>
+							</div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            
+                                            
+                                            <th scope="col">Captain Name</th>
+                                            <th scope="col">Captain Phone</th>
+                                            <th scope="col">Orgnization</th>
+                                            <th scope="col">feedbacks</th>
+                                            
+                                            
+                                        </tr>
+                                    </thead>
+                                    {% for i in view %}
+                                    <tbody>
+                                        <tr>
+                                            
+                                            <td>{{i.name}}</td>
+                                            <td>{{i.phone}}</td>
+                                            <td>{{i.orgniztion}}</td>
+                                           
+
+                                            <td><textarea class="text-center" readonly>{{i.description}}</textarea></td>
+                                            
+                                        </tr>
+                                        
+                                    </tbody>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+
+
+
+
+              
+
+
+                         			<!-- start footer Area -->		
+			<footer class="footer-area section-gap">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-2  col-md-12">
+							<div class="single-footer-widget">
+								<h6>Our Partners</h6>
+								<ul class="footer-nav">
+									<li><a href="#">Porter</a></li>
+									<li><a href="#">Lynk</a></li>
+									<li><a href="#">Swiggy Genie</a></li>
+									<li><a href="#">Rapido</a></li>
+								</ul>
+							</div>
+						</div>
+                        <div class="col-lg-2  col-md-12">
+							<div class="single-footer-widget">
+								<h6>We're here</h6>
+								<ul class="footer-nav">
+									<li><a href="#">Hyderabad</a></li>
+									<li><a href="#">Bangalore</a></li>
+									<li><a href="#">Chennai</a></li>
+									<li><a href="#">Coimbatore</a></li>
+								</ul>
+							</div>
+						</div>
+                        <div class="col-lg-2  col-md-12">
+							<div class="single-footer-widget">
+								<h6>We're here</h6>
+								<ul class="footer-nav">
+									<li><a href="#">Jaipur</a></li>
+									<li><a href="#">Kolkata</a></li>
+									<li><a href="#">Surat</a></li>
+									<li><a href="#">Indore</a></li>
+								</ul>
+							</div>
+						</div>
+                        <div class="col-lg-2  col-md-12">
+							<div class="single-footer-widget">
+								<h6>We're here</h6>
+								<ul class="footer-nav">
+                                    <li><a href="#">Mumbai</a></li>
+									<li><a href="#">Delhi NCR</a></li>
+									<li><a href="#">Bopal</a></li>
+									<li><a href="#">Pune</a></li>
+								</ul>
+							</div>
+						</div>
+                        <div class="col-lg-2  col-md-12">
+							<div class="single-footer-widget">
+								<h6>Trans India</h6>
+								<ul class="footer-nav">
+									<li><a href="captain-payment.html">My Payments</a></li>
+									<li><a href="captain-profile.html">My Profile</a></li>
+									<li><a href="captain-feedback.html">My feedbacks</a></li>
+									<li><a href="captain-order.html">My Orders</a></li>
+								</ul>
+							</div>
+						</div>
+			     </div>
+
+					<div class="row footer-bottom d-flex justify-content-between">
+						<p class="col-lg-8 col-sm-12 footer-text m-0 text-white">
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed by Anantha Corp.
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						</p>
+						<div class="col-lg-4 col-sm-12 footer-social">
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-dribbble"></i></a>
+							<a href="#"><i class="fa fa-behance"></i></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- End footer Area -->
+
+
+            <script src="{% static 'main/js/vendor/jquery-2.2.4.min.js' %}"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="{% static 'main/js/vendor/bootstrap.min.js' %}"></script>			
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  			<script src="{% static 'main/js/easing.min.js' %}"></script>			
+			<script src="{% static 'main/js/hoverIntent.js' %}"></script>
+			<script src="{% static 'main/js/superfish.min.js' %}"></script>	
+			<script src="{% static 'main/js/jquery.ajaxchimp.min.js' %}"></script>
+			<script src="{% static 'main/js/jquery.magnific-popup.min.js' %}"></script>	
+			<script src="{% static 'main/js/owl.carousel.min.js' %}"></script>			
+			<script src="{% static 'main/js/jquery.sticky.js' %}"></script>
+			<script src="{% static 'main/js/jquery.nice-select.min.js' %}"></script>			
+			<script src="{% static 'main/js/parallax.min.js' %}"></script>		
+			<script src="{% static 'main/js/mail-script.js' %}"></script>	
+			<script src="{% static 'main/js/main.js' %}"></script>	
+		</body>
+	</html>

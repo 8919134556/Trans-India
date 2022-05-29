@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+        {% load static %}
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="{% static 'main/img/fav.png' %}">
+		<!-- Author Meta -->
+		<meta name="author" content="codepixer">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Trans India</title>
+
+		
+			<link rel="stylesheet" href="{% static 'main/css/user-form.css' %}">
+            <script src="{% static 'main/js/sweetalert.min.js' %}"></script>
+			</head>
+		<body>
+            <div class="warpper fl">
+                <div class="main">
+                    <div class="head">
+        <p>
+        User Registration Form</p>
+        </div>
+        <div class="form fl">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %} 
+        <p class="name">
+        NAME* :</p>
+        <p>
+        <input type="text" name="fname" required placeholder="Full Name" class="name-inp"></p>
+        
+        
+        
+        <p class="name">
+        EMAIL* :</p>
+        <p>
+        <input type="email" name="email" required placeholder="Email" class="name-inp"></p>
+        <p class="name">
+        PHONE* :</P>
+                            <p>
+        <input type="text" name="phone" pattern="[0-9]{10}" required placeholder="Phone" class="name-inp"></p>
+        <p class="name">
+        PASSWORD* :</p>
+        <p>
+        <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required placeholder="Password  ex:- (Examp123)" class="pass">
+                                
+        </p>
+        
+        <p class="name">
+            Your Image* :</p>
+        <p>
+        <input type="file" name="image" required placeholder="Upload your image" class="file"></p>
+        
+        <p>
+        <input type="submit" name="sb" value="SUBMIT" class="sub"></p>
+        <p class="name">If have an Account, please  <a href="{% url 'user_login' %}">Sign In!</a></p>
+        </form>
+        </div>
+        </div>
+        </div>
+        
+
+
+            <script>
+                const togglePassword = document.querySelector("#togglePassword");
+                const password = document.querySelector("#password");
+        
+                togglePassword.addEventListener("click", function () {
+                    // toggle the type attribute
+                    const type = password.getAttribute("type") === "password" ? "text" : "password";
+                    password.setAttribute("type", type);
+                    
+                    // toggle the icon
+                    this.classList.toggle("bi-eye");
+                });
+        
+                // prevent form submit
+                const form = document.querySelector("form");
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                });
+            </script>
+            <script>
+				{% for msg in messages %} 
+						   
+				   swal( "Server Response", "{{msg}}");
+			   {% endfor %} 
+		   </script>	
+		</body>
+	</html>
